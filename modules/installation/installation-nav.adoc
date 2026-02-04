@@ -1,0 +1,3 @@
+* Installation
+** xref:installation:download-and-launch.adoc[Download and Launch]
+** xref:installation:ui-builder-docker-installation.adoc[Docker Configuration]

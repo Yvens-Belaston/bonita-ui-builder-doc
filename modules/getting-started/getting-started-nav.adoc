@@ -1,0 +1,4 @@
+* xref:getting-started:initiation-manual.adoc[Getting Started]
+** xref:getting-started:create-an-interface.adoc[Create an Interface]
+** xref:getting-started:interact-with-your-bonita-process.adoc[Interact with Bonita Process]
+** xref:getting-started:builder-declare-interface-in-bonita.adoc[Declare Interface in Bonita]

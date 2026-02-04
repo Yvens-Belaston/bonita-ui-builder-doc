@@ -1,0 +1,7 @@
+* Version Control with Git
+** xref:git:version-control-with-git.adoc[Overview]
+** xref:git:connect-git.adoc[Connect to Git]
+** xref:git:git-settings.adoc[Git Settings]
+** xref:git:import-from-git.adoc[Import from Git]
+** xref:git:resolve-merge-conflicts.adoc[Resolve Merge Conflicts]
+** xref:git:revert-changes.adoc[Revert Changes]
