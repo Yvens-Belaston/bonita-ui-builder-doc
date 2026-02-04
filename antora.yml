@@ -1,0 +1,52 @@
+name: ui-builder
+title: Ui builder
+version: 1.3
+asciidoc:
+  attributes:
+    bonitaVersion: 2024.3
+    bonitasoft-registry: 'bonitasoft.jfrog.io'
+    bonitasoft-docker-repository: '{bonitasoft-registry}/docker'
+    bonitaTechnicalVersion: '10.2.0' # latest public community version
+    minimalRequiredJavaVersion: '17'
+    javadocVersion: '10.2'
+    laDeployerVersion: '1.1.2'
+    keycloakDocumentationVersion: 21.1.2
+    openApiUrl: 'https://api-documentation.bonitasoft.com'
+    cscRootUrl: 'https://csc.bonitacloud.bonitasoft.com'
+    cscCustomerServices: '{cscRootUrl}/apps/CustomerServices'
+    cscDownloadUrl: '{cscCustomerServices}/downloads'
+    cscLicenseUrl: '{cscCustomerServices}/licenses'
+    # UI Builder attributes
+    bonita-ui-builder-version: '1.3.3'
+    bonita-ui-builder-image: '{bonitasoft-docker-repository}/bonita-ui-builder'
+    bonita-ui-proxy-image: '{bonitasoft-docker-repository}/bonita-ui-proxy'
+    openApiLatestVersion: '0.0.21' # latest compatible version of bonita openApi with this Bonita version
+    # page attributes (global configuration)
+    page-pagination: true # display links to previous/next pages at the bottom of the page
+    page-editable: true
+    page-out-of-support: false
+    page-next-release: false
+    page-hide-search-bar: false
+    page-hide-components: 'bcd'
+nav:
+  - modules/ROOT/release-note-nav.adoc
+  - modules/bonita-overview/bonita-overview-nav.adoc
+  - modules/ROOT/studio-installation-nav.adoc
+  - modules/getting-started/getting-started-nav.adoc
+  - modules/best-practices/best-practices-nav.adoc
+  - modules/setup-dev-environment/setup-dev-environment-nav.adoc
+  - modules/process/process-nav.adoc
+  - modules/data/data-nav.adoc
+  - modules/pages-and-forms/pages-and-forms-nav.adoc
+  - modules/applications/applications-nav.adoc
+  - modules/build-run/build-run-nav.adoc
+  - modules/software-extensibility/software-extensibility-nav.adoc
+  - modules/integration/integration-nav.adoc
+  - modules/api/api-nav.adoc
+  - modules/identity/identity-nav.adoc
+  - modules/ROOT/build-a-process-for-deployment-nav.adoc
+  - modules/runtime/runtime-nav.adoc
+  - modules/security/security-nav.adoc
+  - modules/version-update/version-update-nav.adoc
+  - modules/contributing/contributing-nav.adoc
+  - modules/ROOT/glossary-nav.adoc
