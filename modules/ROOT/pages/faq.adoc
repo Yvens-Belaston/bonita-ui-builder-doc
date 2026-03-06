@@ -1,5 +1,5 @@
 = FAQ
-:page-aliases: 2024.3@bonita:applications:ui-builder/faq.adoc
+:page-aliases: 2024.3@bonita:applications:ui-builder/faq.adoc, 2025.1@bonita:applications:ui-builder/faq.adoc, 2025.2@bonita:applications:ui-builder/faq.adoc
 :description: Here you can find answers to your questions about Bonita UI Builder.
 
 {description}
@@ -19,8 +19,9 @@ Bonita UI Builder is available by default and for no additional cost in all http
 
 === How to use?
 [subs=+macros]
-Please refer to the xref:getting-started:initiation-manual.adoc[initiation manual]. If you have any other additional questions,
-reach out to our {cscRootUrl}[Support team].
+You can easily test a xref:development:development-instance-from-studio.adoc[Development instance from Studio]. +
+Please refer to the xref:getting-started:[initiation manual] for more general use cases. If you have any other 
+additional questions, reach out to our {cscRootUrl}[Support team].
 
 
 === What are the system requirements?
@@ -28,9 +29,7 @@ Your system/server should have the following configuration for optimal performan
 
 
 === What does it mean for my workflows?
-There should be no change in your logic, continuous integration, and workflows. You can still manage them the way
-you’re managing them today. Just download the docker image and follow the xref:getting-started:initiation-manual.adoc[initiation
-manual].
+There should be no change in your logic, continuous integration, and workflows. You can still manage them the way you’re managing them today. Just download the docker image and follow the xref:getting-started:initiation-manual.adoc[initiation manual].
 
 
 === What does it mean for my existing forms and pages?
@@ -39,16 +38,14 @@ Your existing forms and pages will always be compatible with Bonita. It is also 
 Eventually, Bonita UI Designer will be phased out as we fully transition to Bonita UI Builder. Our goal is to make this transition as smooth as possible, minimizing any disruption to your workflow:
 
 * Continued access: Bonita UI Designer will remain fully operational for an extended period, allowing ample time for adaptation.
-* Support and resources: We offer extensive documentation, tutorials, and support to help you make the most of
-xref:index.adoc[Bonita UI Builder]
+* Support and resources: We offer extensive documentation, tutorials, and support to help you make the most of xref:index.adoc[Bonita UI Builder]
 * Facilitated transition: We are dedicated to facilitating the transition, with detailed guides on how to use Bonita UI Builder, as well as https://www.bonitasoft.com/professional-services/on-demand-services[professional services support]
 
 
 === Can I expect any support from Bonitasoft?
 Yes, you can!
 
-* Support and resources: We offer extensive documentation, tutorials, and support to help you make the most of
-xref:index.adoc[Bonita UI Builder].
+* Support and resources: We offer extensive documentation, tutorials, and support to help you make the most of xref:index.adoc[Bonita UI Builder].
 * Facilitated transition: We are dedicated to facilitating the transition, with detailed guides on how to use Bonita UI Builder, as well as https://www.bonitasoft.com/professional-services/on-demand-services[professional services support].
 
 
@@ -174,15 +171,11 @@ No, the local Bonita UI Builder server is mono-user, meaning it only supports on
 
 
 === Can I use fragments?
-While Bonita UI Builder does not natively support creating reusable components for process forms or UI elements
-(previously known as fragments), there are still xref:development:reuse-code-and-components.adoc[many workarounds] you can use
-to improve reusability, maintenance, and consistency between your pages and applications.
+While Bonita UI Builder does not natively support creating reusable components for process forms or UI elements (previously known as fragments), there are still xref:development:reuse-code-and-components.adoc[many workarounds] you can use to improve reusability, maintenance, and consistency between your pages and applications.
 
 
 === How can I interact with my tasks?
-While Bonita UI Builder does not yet support automatic form creation from contract data, you can still easily
-interact with your tasks, processes, and data. Follow our xref:how-tos:how-to-interact-with-tasks.adoc[dedicated guide] to
-learn more.
+While Bonita UI Builder does not yet support automatic form creation from contract data, you can still easily interact with your tasks, processes, and data. Follow our xref:how-tos:how-to-interact-with-tasks.adoc[dedicated guide] to learn more.
 
 
 [.troubleshooting-title]
@@ -206,9 +199,7 @@ In that case, the Application Directory opened from that application only will n
 [.solution]#Solution#
 Fix this by using `custompage_layoutBonita` as the layout value, which will automatically migrate to the latest layout.
 
-You may also encounter this issue if you use a xref:@bonita:applications:ui-designer/customize-layouts.adoc[customized
-layout]
-instead of the official one. In that case, update your application's layout by re-applying your modifications to the latest layout version that implements the improvements for Application Links.
+You may also encounter this issue if you use a xref:@bonita:applications:ui-designer/customize-layouts.adoc[customized layout] instead of the official one. In that case, update your application's layout by re-applying your modifications to the latest layout version that implements the improvements for Application Links.
 
 The same applies to the Application directory page used in the default application directory app: if you use a customized version of it, you need to re-apply your changes on the latest version packaged with Bonita runtime.
 --
@@ -256,4 +247,59 @@ The `Document Viewer` widget currently doesn't support the Bonita Document viewe
 
 [.solution]#Solution#
 You can use an `Iframe` widget as an alternative solution.
+--
+
+[#ContainerNameTakenIssue]
+[.troubleshooting-section]
+--
+[.symptom]
+When starting Bonita Studio, I get the UI Builder warning:
+[quote,UI Builder warning]
+____
+It looks like there is already an application running on the UI Builder port. You may have another instance of UI Builder running on your machine but not responding, or another application in place. Make sure to stop it before starting UI Builder.
+____
+
+[.cause]#Cause#
+This warning may have several causes:
+
+* You have another instance of Bonita UI Builder running on your machine.
+* Another application is using the same port as Bonita UI Builder (default: 80).
+* Another container is already using the same container name as Bonita UI Builder (default: `bonita-ui-builder` and `bonita-ui-proxy`).
+
+[.solution]#Solution#
+Check which application is using the port and stop it before starting UI Builder. +
+Check which container is using the same name and delete it before starting UI Builder or potentially, modify `docker-compose.yml` file to avoid name conflict. +
+You do not need to restart Bonita Studio before restarting UI Builder. +
+You may also get extra hints looking at the Bonita UI Builder log.
+--
+
+[#UIBuilderRestartingFromStudioIssue]
+[.troubleshooting-section]
+--
+[.symptom]
+When launching Bonita UI Builder from Bonita Studio, progress is stuck and I get the message:
+[quote,UI Builder Start progress]
+____
+UI Builder could not connect to the Bonita runtime. +
+It is restarting. +
+You can either: +
+- check that Bonita runtime is up and running, +
+- cancel UI Builder start.
+____
+
+[.cause]#Cause#
+This indicates that the UI Builder is having a hard time contacting the Bonita runtime.
+This may have several causes:
+
+* Bonita runtime is not running.
+* A firewall is blocking the connection between Bonita UI Builder and Bonita Runtime.
+* You have corrupted the `docker-compose.yml` file.
+
+[.solution]#Solution#
+
+* Make sure Bonita runtime is running from Bonita Studio by clicking on the "Applications" button.
+* Try and disable any firewall that may be blocking the connection, or configure a firewall exception for the Bonita Runtime port.
+* Cancel UI Builder start, select "Edit project information" from the "Project explorer" view, and reset the launch configuration to default.
+* If the issue persists, you can also check for additional hints in the Bonita UI Builder log by clicking on the Studio menu.
+
 --

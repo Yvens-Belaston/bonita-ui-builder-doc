@@ -1,5 +1,5 @@
 = Version control with Git
-:page-aliases: 2024.3@bonita:applications:ui-builder/version-control-with-git/version-control-with-git.adoc
+:page-aliases: 2024.3@bonita:applications:ui-builder/version-control-with-git/version-control-with-git.adoc, 2025.1@bonita:applications:ui-builder/version-control-with-git/version-control-with-git.adoc, 2025.2@bonita:applications:ui-builder/version-control-with-git/version-control-with-git.adoc
 :description: Discover how to use the Git feature in Bonita UI Builder for project management and team collaboration.
 
 {description}
@@ -26,12 +26,12 @@ image::git-version-control.png[]
 Using version control in Bonita UI Builder follows a typical Git workflow.
 
 * Collaborators must have Bonita UI Builder installed locally.
-* Each user needs to xref:git-settings.adoc#git-settings-overview[set] their git email and username in their local installation profile.
+* Each user needs to xref:git-settings.adoc#_access_to_git_settings_from_your_user_profile[set] their git email and username in their local installation profile.
 * From the application settings, xref:connect-git.adoc[connect] to a Git repository.
 
 [NOTE]
 ====
-* Users can xref:git-settings.adoc#git-settings-overview[configure] their git email and username for each application they work on.
+* Users can xref:git-settings.adoc#_access_to_git_settings_from_an_application[configure] their git email and username for each application they work on.
 * Each application can only be associated with one Git repository, and a single repository cannot be shared across multiple applications.
 ====
 
@@ -39,7 +39,7 @@ Using version control in Bonita UI Builder follows a typical Git workflow.
 ====
 Connecting to the main branch of a Git repository should be avoided.
 Indeed, the Auto Commit feature ensures that changes related to a Bonita UI Builder version upgrade are automatically committed.
-See xref:git-settings.adoc#disable_auto-commit[Disable Auto-Commit] for details.
+See xref:git-settings.adoc#_disable_auto_commit[Disable Auto-Commit] for details.
 ====
 
 == Manage Git

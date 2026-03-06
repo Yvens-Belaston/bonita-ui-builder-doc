@@ -1,5 +1,5 @@
 = Production packaging
-:page-aliases: 2024.3@bonita:applications:ui-builder/production-packaging.adoc
+:page-aliases: 2024.3@bonita:applications:ui-builder/production-packaging.adoc, 2025.1@bonita:applications:ui-builder/production-packaging.adoc, 2025.2@bonita:applications:ui-builder/production-packaging.adoc
 :description: Procedure to build the UI production binary
 
 NOTE: Before starting, ensure you have **Docker** installed on your system.
@@ -92,8 +92,7 @@ Your applications will then be accessible at `+http://localhost+` or `+http://YO
 
 === Configure and manage Bonita healthcheck settings in a production environment
 
-The xref:@bonita:runtime:healthcheck-mechanism.adoc[Bonita healthcheck] is a mechanism used to monitor the health and
-availability of Bonita services in production environments.
+The xref:@bonita:runtime:healthcheck-mechanism.adoc[Bonita healthcheck] is a mechanism used to monitor the health and availability of Bonita services in production environments.
 It periodically checks the status of these services to ensure they are functioning properly, helping to identify issues early and maintain system stability.
 
 Changing the default credentials for the healthcheck is crucial for security.
@@ -123,8 +122,7 @@ By following these steps, you can effectively configure Bonita's healthcheck to 
 
 === Customize your bonita-ui-builder image
 
-You can override and configure all xref:installation:ui-builder-docker-installation.adoc#environment-variables[environment
-variables].
+You can override and configure all xref:installation:ui-builder-docker-installation.adoc#environment-variables[environment variables].
 
 
 [NOTE]
