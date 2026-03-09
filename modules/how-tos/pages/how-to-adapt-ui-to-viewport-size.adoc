@@ -22,6 +22,7 @@ Both strategies rely on `appsmith.ui`, which exposes the viewport width and heig
 
 == Strategy 1 — Control Widget Visibility via a JSObject
 
+[#s1-step1]
 === Step 1 — Expose viewport width globally and control widget visibility
 
 Instead of (or in addition to) a redirect, you can store `appsmith.ui.width` as a global variable in a JSObject so that every widget on the page can reference it. Create a JSObject with a property that captures the value on page load:
@@ -59,6 +60,7 @@ The goal of the following steps is to create a *JS function that runs on page lo
 * If the viewport is *narrow* (mobile device), redirects the user to a *mobile-specific application or page*.
 * If the viewport is *wide* (desktop), lets the user stay on the current page (no redirect).
 
+[#s2-step1]
 === Step 1 — Create a JSObject
 
 In Bonita UI Builder (Appsmith), go to the *JS* tab in the left sidebar and click *+ (for a new JS Object)*.
@@ -126,6 +128,7 @@ export default {
 | Appsmith's built-in global function. `target` can be a *page name* (internal) or a *full URL* (external). `params` is an optional query-parameter object. `windowType` is either `"SAME_WINDOW"` or `"NEW_WINDOW"`.
 |===
 
+[#s2-step2]
 === Step 2 — Set the function to run On Page Load
 
 . In the JSObject you just created, click the *Settings* tab (gear icon) at the bottom of the JS editor.
@@ -134,6 +137,7 @@ export default {
 
 This ensures `redirectIfMobile()` executes automatically every time the page is opened — before the user sees or interacts with anything.
 
+[#s2-step3]
 === Step 3 — Prepare the mobile destination
 
 Choose *one* of the two options below.
@@ -189,7 +193,7 @@ export default {
 };
 ----
 
-Set `redirectByDevice` to run *On Page Load* following the same process as Step 2.
+Set `redirectByDevice` to run *On Page Load* following the same process as <<s2-step2,Step 2>>.
 
 == Important Notes and Best Practices
 
