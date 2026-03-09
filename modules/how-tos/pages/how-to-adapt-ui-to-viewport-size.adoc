@@ -3,8 +3,8 @@
 
 {description}
 
-* Difficulty: beginner
-* Prerequisites: have an application on Bonita UI Builder
+* Difficulty: intermediate
+* Prerequisites: have an xref:getting-started:create-an-interface.adoc[interface created] on Bonita UI Builder
 * Estimated time: 15 minutes
 
 To build applications that must work well on both desktop and mobile, we have laid out two of the main strategies available in this how-to — and they can be combined.
@@ -19,8 +19,6 @@ For Strategy 2, you have two ways to organize the separate interfaces:
 * *Two separate applications*: a full desktop application and a dedicated mobile-responsive application. This is better when the mobile experience differs significantly (different navigation, fewer features, distinct workflows).
 
 Both strategies rely on `appsmith.ui`, which exposes the viewport width and height at the moment the page loads. You can use either strategy independently or combine them for fine-grained control.
-
-'''
 
 == Strategy 1 — Control Widget Visibility via a JSObject
 
@@ -52,7 +50,7 @@ This hides the widget on mobile screens. Or inversely:
 
 This shows the widget *only* on mobile screens.
 
-'''
+For more details on controlling widget visibility, see xref:how-to-control-visibility-of-widgets.adoc[How to control the visibility of your widgets].
 
 == Strategy 2 — Redirect Mobile Users on Page Load
 
@@ -61,9 +59,7 @@ The goal of the following steps is to create a *JS function that runs on page lo
 * If the viewport is *narrow* (mobile device), redirects the user to a *mobile-specific application or page*.
 * If the viewport is *wide* (desktop), lets the user stay on the current page (no redirect).
 
-'''
-
-=== Step 2 — Create a JSObject
+=== Step 1 — Create a JSObject
 
 In Bonita UI Builder (Appsmith), go to the *JS* tab in the left sidebar and click *+ (for a new JS Object)*.
 
@@ -91,7 +87,7 @@ export default {
      * Reads the viewport width captured at page load via appsmith.ui
      * and redirects mobile users to the appropriate destination.
      *
-     * Configure this function to run "On page load" (see Step 3).
+     * Configure this function to run "On page load" (see Step 2).
      */
     redirectIfMobile() {
         // 1. (Optional) Log the value for debugging
@@ -130,7 +126,7 @@ export default {
 | Appsmith's built-in global function. `target` can be a *page name* (internal) or a *full URL* (external). `params` is an optional query-parameter object. `windowType` is either `"SAME_WINDOW"` or `"NEW_WINDOW"`.
 |===
 
-=== Step 3 — Set the function to run On Page Load
+=== Step 2 — Set the function to run On Page Load
 
 . In the JSObject you just created, click the *Settings* tab (gear icon) at the bottom of the JS editor.
 . Find the function `redirectIfMobile` in the list.
@@ -138,7 +134,7 @@ export default {
 
 This ensures `redirectIfMobile()` executes automatically every time the page is opened — before the user sees or interacts with anything.
 
-=== Step 4 — Prepare the mobile destination
+=== Step 3 — Prepare the mobile destination
 
 Choose *one* of the two options below.
 
@@ -154,9 +150,12 @@ Choose *one* of the two options below.
 . Copy its deployed URL and paste it into `MOBILE_APP_URL` in the JSObject.
 . In the JSObject code, *comment out* the Option A `navigateTo` line and *uncomment* the Option B line.
 
-'''
+== (Optional) Advanced Example — Multiple Breakpoints
 
-== Advanced Example — Multiple Breakpoints
+[TIP]
+====
+This section is optional. If you are just getting started, you can skip it and come back later.
+====
 
 [source,javascript]
 ----
@@ -190,9 +189,7 @@ export default {
 };
 ----
 
-Set `redirectByDevice` to run *On Page Load* following the same process as Step 3.
-
-'''
+Set `redirectByDevice` to run *On Page Load* following the same process as Step 2.
 
 == Important Notes and Best Practices
 
@@ -220,8 +217,6 @@ Set `redirectByDevice` to run *On Page Load* following the same process as Step 
 | Desktop
 | >= 1024 px
 |===
-
-'''
 
 == Summary
 
@@ -251,3 +246,8 @@ Set `redirectByDevice` to run *On Page Load* following the same process as Step 
 | Minimum UI Builder version
 | *1.3.10*
 |===
+
+== See also
+
+* xref:development:create-fully-responsive-apps.adoc[Create Fully Responsive Applications] — concept page with responsive strategies overview
+* xref:how-to-control-visibility-of-widgets.adoc[How to control the visibility of your widgets] — detailed guide on widget visibility
