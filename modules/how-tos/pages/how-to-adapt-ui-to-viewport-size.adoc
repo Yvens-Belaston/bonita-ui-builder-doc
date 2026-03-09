@@ -1,5 +1,12 @@
+= Adapt UI to viewport size
+:page-aliases: 2024.3@bonita:applications:ui-builder/how-to-adapt-ui-to-viewport-size.adoc, 2025.1@bonita:applications:ui-builder/how-to-adapt-ui-to-viewport-size.adoc, 2025.2@bonita:applications:ui-builder/how-to-adapt-ui-to-viewport-size.adoc
+:description: Learn how to make your UI Builder applications responsive by adapting the interface to different viewport sizes using widget visibility and page redirection strategies.
 
-== How to adapt ui to viewport size
+{description}
+
+* Difficulty: beginner
+* Prerequisites: have an application on Bonita UI Builder
+* Estimated time: 15 minutes
 
 To build applications that must work well on both desktop and mobile, we have laid out two of the main strategies available in this how-to — and they can be combined.
 
